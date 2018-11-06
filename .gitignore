@@ -1,3 +1,5 @@
 *.csv
 *.jpg
 py36/
+# Allow
+!meta-data-refined.csv

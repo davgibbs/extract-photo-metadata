@@ -51,7 +51,7 @@ def collect_data(path, file_name):
         'Camera Model': str(model),
         'Date Taken': str(date),
         'Shutter Speed (s)': str(shutterspeed),
-        'Aperature': f'f/{division}',
+        'Aperture': f'f/{division}',
         'ISO Speed Rating': f'{iso}',
         'Flash Fired': f'{flash}',
         'Exposure Program': f'{exposure_program}',
@@ -73,12 +73,12 @@ def process_photos(directory):
     with open(directory + 'meta-data.csv', 'w', newline='') as csvfile:
         spamwriter = csv.writer(csvfile, delimiter='|', quotechar='|', quoting=csv.QUOTE_MINIMAL)
         spamwriter.writerow(['Name', 'Image Type', 'Width (pixels)', 'Height (pixels)', 'Camera Brand', 'Camera Model',
-                             'Date Taken', 'Shutter Speed (s)', 'Aperature', 'ISO Speed Rating', 'Flash',
+                             'Date Taken', 'Shutter Speed (s)', 'Aperture', 'ISO Speed Rating', 'Flash',
                              'Exposure Program', 'Focal Length (mm)', 'Lens', 'Creator'])
         for row in results:
             spamwriter.writerow([row['Image Name'], row['Image Type'], row['Width (pixels)'], row['Height (pixels)'],
                                  row['Camera Brand'], row['Camera Model'], row['Date Taken'], row['Shutter Speed (s)'],
-                                 row['Aperature'], row['ISO Speed Rating'], row['Flash Fired'], row['Exposure Program'],
+                                 row['Aperture'], row['ISO Speed Rating'], row['Flash Fired'], row['Exposure Program'],
                                  row['Focal Length (mm)'], row['Lens'], row['Creator']])
 
 
