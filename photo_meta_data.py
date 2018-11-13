@@ -13,6 +13,9 @@ def collect_data(path, file_name):
     with open(path, 'rb') as f:
         tags = exifread.process_file(f, details=False)
 
+    if len(tags.keys()) == 0:
+        print('No tags processed for file %s' % file_name)
+
     # extract required data
     image_type = tags['Thumbnail Compression']
     image_width = tags['EXIF ExifImageWidth']
@@ -64,7 +67,7 @@ def collect_data(path, file_name):
 def process_photos(directory):
     results = []
     for file_name in os.listdir(directory):
-        if file_name.endswith('.csv') or file_name.endswith('.csv#') or file_name.endswith('.py') or not os.path.isfile(file_name):
+        if file_name.endswith('.csv') or file_name.endswith('.csv#') or file_name.endswith('.gitignore') or file_name.endswith('.py') or not os.path.isfile(file_name):
             continue
         path = directory + file_name
         info = collect_data(path, file_name)
